@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ClienteSeeder extends Seeder
+class LogSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,8 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("clientes")->insert([
-            ["ci"=>"1010","nombre"=>"JUAN LOPEZ"],
-            ["ci"=>"2020","nombre"=>"MARIA JUARES"],
+        DB::table("logs")->insert([
+            ["fecha"=>"2021-01-01","hora"=>"10:00","monto"=>10,"auto_id"=>1,"user_id"=>1],
         ]);
     }
 }

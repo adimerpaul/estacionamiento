@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class ClienteSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +15,8 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("clientes")->insert([
-            ["ci"=>"1010","nombre"=>"JUAN LOPEZ"],
-            ["ci"=>"2020","nombre"=>"MARIA JUARES"],
+        DB::table("users")->insert([
+            ["name"=>"admin","email"=>"admin@test.com","password"=> Hash::make("123456") ],
         ]);
     }
 }

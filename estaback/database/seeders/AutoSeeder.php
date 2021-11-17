@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ClienteSeeder extends Seeder
+class AutoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,9 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("clientes")->insert([
-            ["ci"=>"1010","nombre"=>"JUAN LOPEZ"],
-            ["ci"=>"2020","nombre"=>"MARIA JUARES"],
+        DB::table("autos")->insert([
+            ["placa"=>"AAA-1010","marca"=>"NISSAN","cliente_id"=>1],
+            ["placa"=>"AAA-2020","marca"=>"TOYOTA","cliente_id"=>2],
         ]);
     }
 }
