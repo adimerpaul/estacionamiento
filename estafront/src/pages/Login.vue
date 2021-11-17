@@ -1,10 +1,34 @@
 <template>
-$END$
+<q-page>
+  <form class="login" @submit.prevent="login">
+    <h1>Sign in</h1>
+    <label>Email</label>
+    <input required v-model="email" type="email" placeholder="Name"/>
+    <label>Password</label>
+    <input required v-model="password" type="password" placeholder="Password"/>
+    <hr/>
+    <button type="submit">Login</button>
+  </form>
+</q-page>
 </template>
 
 <script>
 export default {
-name: "Login.vue"
+  data(){
+    return {
+      email : "",
+      password : ""
+    }
+  },
+  methods: {
+    login: function () {
+      let email = this.email
+      let password = this.password
+      this.$store.dispatch('login/login', { email, password })
+        .then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
+    }
+  }
 }
 </script>
 
