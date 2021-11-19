@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Log;
 use App\Http\Requests\StoreLogRequest;
 use App\Http\Requests\UpdateLogRequest;
+use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
@@ -15,7 +16,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        //
+        return Log::with('auto')->with('user')->whereDate('fecha',now())->get();
     }
 
     /**
@@ -34,9 +35,16 @@ class LogController extends Controller
      * @param  \App\Http\Requests\StoreLogRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLogRequest $request)
+    public function store(Request $request)
     {
-        //
+//        return 'a';
+        $log=new Log();
+        $log->fecha=date('Y-m-d');
+        $log->hora=date('H:i:s');
+        $log->monto=$request->monto;
+        $log->auto_id=$request->auto_id;
+        $log->user_id=$request->user()->id;
+        $log->save();
     }
 
     /**
@@ -68,7 +76,7 @@ class LogController extends Controller
      * @param  \App\Models\Log  $log
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLogRequest $request, Log $log)
+    public function update(Request $request, Log $log)
     {
         //
     }

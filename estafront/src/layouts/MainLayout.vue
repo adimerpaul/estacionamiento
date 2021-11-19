@@ -46,6 +46,9 @@
         <q-item clickable v-ripple to="/secure" exact>
           <q-item-section>Secure</q-item-section>
         </q-item>
+        <q-item clickable v-ripple to="/garaje" exact>
+          <q-item-section>Cobro de garaje</q-item-section>
+        </q-item>
         <q-item clickable v-ripple @click="logout" exact>
           <q-item-section>Salir</q-item-section>
         </q-item>

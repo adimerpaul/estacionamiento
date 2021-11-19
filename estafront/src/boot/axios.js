@@ -17,11 +17,11 @@ export default boot(({ app }) => {
   //       so you won't necessarily have to import axios in each vue file
   const token = localStorage.getItem('token')
   if (token) {
-    api.defaults.headers.common['Authorization'] = 'Bearer '+token
+    app.config.globalProperties.$axios.defaults.headers.common['Authorization'] = 'Bearer '+token
   }
   app.config.globalProperties.$api = api
   // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
   //       so you can easily perform requests against your app's API
 })
 
-export { api }
+export { axios,api }

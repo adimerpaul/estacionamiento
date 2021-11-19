@@ -15,7 +15,7 @@ class AutoController extends Controller
      */
     public function index()
     {
-        //
+        return Auto::all();
     }
 
     /**

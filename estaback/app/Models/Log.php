@@ -15,4 +15,10 @@ class Log extends Model
         "user_id",
         "auto_id"
     ];
+    public function auto(){
+        return $this->belongsTo(Auto::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

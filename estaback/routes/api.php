@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::post('/login',[\App\Http\Controllers\UserController::class,'login']);
+
 Route::group(['middleware'=>"auth:sanctum"],function (){
     Route::apiResource('/cliente',\App\Http\Controllers\ClienteController::class);
+    Route::apiResource('/auto',\App\Http\Controllers\AutoController::class);
+    Route::resource('/log',\App\Http\Controllers\LogController::class);
     Route::post('/logout',[\App\Http\Controllers\UserController::class,'logout']);
 });
 

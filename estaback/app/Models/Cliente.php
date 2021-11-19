@@ -12,4 +12,7 @@ class Cliente extends Model
         "ci",
         "nombre"
     ];
+    public function autos(){
+        return $this->hasMany(Auto::class);
+    }
 }
